@@ -1,0 +1,11 @@
+---
+apiVersion: konflux.redhat.com/v1alpha1
+kind: RelatedImagesMirrorSet
+metadata:
+  name: related-images-mirror-set
+  workspace: ynanavat-operator-example
+spec:
+  mirrors:
+    - source: "quay.io/gatekeeper/getekeeper"
+      mirrors:
+        - "quay.io/yashn/konflux-test-yashn"
