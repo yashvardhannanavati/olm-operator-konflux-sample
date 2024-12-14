@@ -1,11 +1,10 @@
 ---
-apiVersion: konflux.redhat.com/v1alpha1
-kind: RelatedImagesMirrorSet
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageDigestMirrorSet
 metadata:
-  name: related-images-mirror-set
-  workspace: ynanavat-operator-example
+  name: example-mirror-set
 spec:
-  mirrors:
-    - source: "quay.io/gatekeeper/getekeeper"
-      mirrors:
-        - "quay.io/yashn/konflux-test-yashn"
+  imageDigestMirrors:
+    - mirrors:
+        - quay.io/yashn/konflux-test-yashn
+      source: quay.io/gatekeeper/gatekeeper
