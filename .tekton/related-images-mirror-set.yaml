@@ -7,4 +7,5 @@ spec:
   imageDigestMirrors:
     - mirrors:
         - quay.io/yashn/konflux-test-yashn
+        - quay.io/something-else
       source: quay.io/redhat-user-workloads/konflux-samples-tenant/olm-operator/gatekeeper
