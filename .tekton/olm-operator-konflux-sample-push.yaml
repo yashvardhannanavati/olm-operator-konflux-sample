@@ -162,6 +162,37 @@ spec:
       workspaces:
       - name: basic-auth
         workspace: git-auth
+    - name: clone-repository-not-ta
+      params:
+      - name: url
+        value: $(params.git-url)
+      - name: revision
+        value: $(params.revision)
+      - name: ociStorage
+        value: $(params.output-image).git
+      - name: ociArtifactExpiresAfter
+        value: $(params.image-expires-after)
+      runAfter:
+      - init
+      taskRef:
+        params:
+        - name: name
+          value: git-clone
+        - name: bundle
+          value: quay.io/konflux-ci/tekton-catalog/task-git-clone:0.1@sha256:d091a9e19567a4cbdc5acd57903c71ba71dc51d749a4ba7477e689608851e981
+        - name: kind
+          value: task
+        resolver: bundles
+      when:
+      - input: $(tasks.init.results.build)
+        operator: in
+        values:
+        - "true"
+      workspaces:
+      - name: basic-auth
+        workspace: git-auth
+      - name: output
+        workspace: workspace
     - name: prefetch-dependencies
       params:
       - name: input
@@ -303,11 +334,23 @@ spec:
         - name: kind
           value: task
         resolver: bundles
-      when:
-      - input: $(params.skip-checks)
-        operator: in
-        values:
-        - "false"
+    - name: fbc-fips-check
+      params:
+      - name: image-url
+        value: $(tasks.build-image-index.results.IMAGE_URL)
+      - name: image-digest
+        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+      runAfter:
+      - build-image-index
+      taskRef:
+        params:
+        - name: url
+          value: https://github.com/yashvardhannanavati/build-definitions.git
+        - name: revision
+          value: new_fbc_fips_check
+        - name: pathInRepo
+          value: task/fbc-fips-check/0.1/fbc-fips-check.yaml
+        resolver: git
     - name: clair-scan
       params:
       - name: image-digest
