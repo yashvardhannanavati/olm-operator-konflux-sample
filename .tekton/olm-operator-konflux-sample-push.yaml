@@ -337,11 +337,10 @@ spec:
     - name: fbc-fips-check
       params:
       - name: image-url
-        value: $(tasks.build-image-index.results.IMAGE_URL)
+        value: quay.io/redhat-user-workloads/cnv-fbc-tenant/cnv-fbc-v4-16/v416-cnv-fbc:2914faa6427ff7b94f41b3b2f5ec21b018dc9f21
       - name: image-digest
-        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+        value: sha256:820f028fd88f57bb4d5cfa27cfefb6c9f7519652b5c1494a6da17ee45c73673d
       runAfter:
-      - build-image-index
       - clone-repository-not-ta
       taskRef:
         params:
