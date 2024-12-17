@@ -354,6 +354,27 @@ spec:
       workspaces:
       - name: workspace
         workspace: workspace
+    - name: fips-operator-bundle-check
+      params:
+      - name: image-url
+        value: $(tasks.build-image-index.results.IMAGE_URL)
+      - name: image-digest
+        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+      runAfter:
+      - clone-repository-not-ta
+      - build-image-index
+      taskRef:
+        params:
+        - name: url
+          value: https://github.com/yashvardhannanavati/build-definitions.git
+        - name: revision
+          value: testing_branch
+        - name: pathInRepo
+          value: task/BACKUP-fips-operator-bundle-check/0.1/fips-operator-bundle-check.yaml
+        resolver: git
+      workspaces:
+      - name: workspace
+        workspace: workspace
     # - name: clair-scan
     #   params:
     #   - name: image-digest
