@@ -7,7 +7,7 @@ spec:
   imageDigestMirrors:
     - mirrors:
         - quay.io/yashn/konflux-test-yashn
-        - quay.io/hopefully/this/works
+        - quay.io/hopefully/this/time/works
       source: quay.io/redhat-user-workloads/konflux-samples-tenant/olm-operator/gatekeeper
     - mirrors:
         - quay.io/redhat-user-workloads/konflux-sec-eng-spec-tenant/nbde-tang-server-multiarch-bundle
