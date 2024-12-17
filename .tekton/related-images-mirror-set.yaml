@@ -9,3 +9,6 @@ spec:
         - quay.io/yashn/konflux-test-yashn
         - quay.io/something-else
       source: quay.io/redhat-user-workloads/konflux-samples-tenant/olm-operator/gatekeeper
+    - mirrors:
+        - quay.io/redhat-user-workloads/konflux-sec-eng-spec-tenant/nbde-tang-server-multiarch-bundle
+      source: registry.redhat.io/nbde-tang-server/nbde-tang-server-operator-bundle
