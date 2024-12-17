@@ -351,6 +351,9 @@ spec:
         - name: pathInRepo
           value: task/fbc-fips-check/0.1/fbc-fips-check.yaml
         resolver: git
+      workspaces:
+      - name: workspace
+        workspace: workspace
     - name: clair-scan
       params:
       - name: image-digest
@@ -614,6 +617,17 @@ spec:
       optional: true
   taskRunTemplate: {}
   workspaces:
+  - name: workspace
+    volumeClaimTemplate:
+      metadata:
+        creationTimestamp: null
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+      status: {}
   - name: git-auth
     secret:
       secretName: '{{ git_auth_secret }}'
