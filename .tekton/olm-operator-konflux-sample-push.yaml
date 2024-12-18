@@ -337,7 +337,7 @@ spec:
     - name: fbc-fips-check
       params:
       - name: image-url
-        value: quay.io/redhat-user-workloads/konflux-sec-eng-spec-tenant/fbc-4-17:on-pr-5141d42b1fec90360a2674945f16fd9fdc4b53f1
+        value: qquay.io/redhat-user-workloads/konflux-sec-eng-spec-tenant/fbc-4-17:on-pr-5141d42b1fec90360a2674945f16fd9fdc4b53f1
       - name: image-digest
         value: sha256:e22c876153eb05017afca12af30c1b2e4abc4e58b451984f580f4bfde7be63ee
       runAfter:
