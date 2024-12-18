@@ -337,9 +337,9 @@ spec:
     - name: fbc-fips-check
       params:
       - name: image-url
-        value: quay.io/redhat-user-workloads/konflux-sec-eng-spec-tenant/fbc-4-17:on-pr-5141d42b1fec90360a2674945f16fd9fdc4b53f1
+        value: quay.io/securesign/fbc-v4-16:5bcf13398e7d3fad526ff8652a9ab9077dd3737f
       - name: image-digest
-        value: sha256:e22c876153eb05017afca12af30c1b2e4abc4e58b451984f580f4bfde7be63ee
+        value: sha256:d3ba6b918e62f7bb0ea678180923aaf368f4a9f5c86dc98a0ddee37c5e778b18
       runAfter:
       - clone-repository-not-ta
       taskRef:
